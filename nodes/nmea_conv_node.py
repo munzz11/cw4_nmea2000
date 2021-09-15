@@ -11,7 +11,7 @@ from diagnostic_msgs.msg import KeyValue
 def diag_log(Array):
 
     #TODO: Move all config values to config server
-    #All translation foromatting can be found in: https://www.maretron.com/support/manuals/USB100UM_1.7.html
+    #All translation formatting can be found in: https://www.maretron.com/support/manuals/USB100UM_1.7.html
     
     diagnostic_pub = rospy.Publisher('/diagnostics',DiagnosticArray,queue_size=10)
     ds = DiagnosticStatus()
@@ -29,7 +29,7 @@ def diag_log(Array):
             elif Array[1] == 'C':
                 if Array[4].startswith('ENV'):
                     ds.name = 'Environmental Parameters'
-                    ds.values.append(KeyValue('Enviroment Temp(C)', Array[2]))              #TODO: Determine where enviroment temp is being read from
+                    ds.values.append(KeyValue('Environment Temp(C)', Array[2]))              #TODO: Determine where environment temp is being read from
                 elif Array[4].startswith('EXHAUST'):
                     ds.name = 'Environmental Parameters'
                     ds.values.append(KeyValue('Exhaust Temp (C)', Array[2])) 
@@ -121,7 +121,9 @@ def diag_log(Array):
         diagnostic_pub.publish(diag_array)
 
     else:
-        ds.values.append(KeyValue('unknown acronym' , Array[0]))
+        ds.name = 'Unknown NMEA message'
+        ds.values.append(KeyValue('Unknown acronym' , ','.join(Array)))
+        ds.level = DiagnosticStatus.ERROR
         diag_array.status.append(ds)
         diagnostic_pub.publish(diag_array)
 
