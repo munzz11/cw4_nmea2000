@@ -10,6 +10,7 @@ from diagnostic_msgs.msg import KeyValue
 
 def diag_log(Array):
 
+    #TODO: Move all config values to config server
     #TODO: Calibrate OK/Warning/Error levels for Fuel, Env temp and Exhaust temp 
     ######Warning Ranges########
 
