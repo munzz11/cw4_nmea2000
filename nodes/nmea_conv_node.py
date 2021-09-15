@@ -11,6 +11,7 @@ from diagnostic_msgs.msg import KeyValue
 def diag_log(Array):
 
     #TODO: Move all config values to config server
+    #All translation foromatting can be found in: https://www.maretron.com/support/manuals/USB100UM_1.7.html
     
     diagnostic_pub = rospy.Publisher('/diagnostics',DiagnosticArray,queue_size=10)
     ds = DiagnosticStatus()
@@ -28,7 +29,7 @@ def diag_log(Array):
             elif Array[1] == 'C':
                 if Array[4].startswith('ENV'):
                     ds.name = 'Environmental Parameters'
-                    ds.values.append(KeyValue('Enviroment Temp(C)', Array[2])) #TODO: Determine where enviroment temp is being read from
+                    ds.values.append(KeyValue('Enviroment Temp(C)', Array[2]))              #TODO: Determine where enviroment temp is being read from
                 elif Array[4].startswith('EXHAUST'):
                     ds.name = 'Environmental Parameters'
                     ds.values.append(KeyValue('Exhaust Temp (C)', Array[2])) 
@@ -109,7 +110,7 @@ def diag_log(Array):
         try:
             ds.name = 'Attitude'
             ds.values.append(KeyValue('Roll',Array[2]))
-            ds.values.append(KeyValue('Pitch',Array[30]))
+            ds.values.append(KeyValue('Pitch',Array[3]))
             ds.values.append(KeyValue('Yaw',Array[4]))
         except:
             ds.name = 'NMEA Format Error'
