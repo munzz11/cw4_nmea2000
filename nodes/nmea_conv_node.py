@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import rospy
-import pynmea2
 import datetime
 from nmea_msgs.msg import Sentence
 from diagnostic_msgs.msg import DiagnosticArray
