@@ -43,8 +43,8 @@ def diag_log(Array):
     elif Array[0] == '$IIHDG':
         try:
             ds.name = 'Vessel Heading'
-            ds.values.append(KeyValue('Magetic Sensor Heading', Array[1]))
-            ds.values.append(KeyValue('Magetic Deviation', Array[2]))
+            ds.values.append(KeyValue('Magnetic Sensor Heading', Array[1]))
+            ds.values.append(KeyValue('Magnetic Deviation', Array[2]))
             ds.values.append(KeyValue('Deviation E/W', Array[3]))
         except:
             ds.name = 'NMEA Format Error'
@@ -88,14 +88,14 @@ def diag_log(Array):
             ds.values.append(KeyValue('Engine Oil Press (mBar)',Array[2]))
             ds.values.append(KeyValue('Engine Oil Temp (C)',Array[3]))
             ds.values.append(KeyValue('Engine Temp (C)',Array[4]))
-            ds.values.append(KeyValue('Alternator Potential (V) ',Array[5]))
+            ds.values.append(KeyValue('Alternator Potential (V)',Array[5]))
             ds.values.append(KeyValue('Fuel Rate (lph)',Array[6]))
             ds.values.append(KeyValue('Total Engine Hours (hrs)',Array[7]))
             ds.values.append(KeyValue('Coolant Pressure (mbar)',Array[8]))
-            ds.values.append(KeyValue('Fuel Pressure (mbar) ',Array[9]))
-            ds.values.append(KeyValue('Engine Discrete Status 1 ',Array[10]))
-            ds.values.append(KeyValue('Engine Discrete Status 2 ',Array[11]))
-            ds.values.append(KeyValue('Percent Engine Load ',Array[12]))
+            ds.values.append(KeyValue('Fuel Pressure (mbar)',Array[9]))
+            ds.values.append(KeyValue('Engine Discrete Status 1',Array[10]))
+            ds.values.append(KeyValue('Engine Discrete Status 2',Array[11]))
+            ds.values.append(KeyValue('Percent Engine Load',Array[12]))
             ds.values.append(KeyValue('Percent Eng. Torque',Array[13]))
         except:
             ds.name = 'NMEA Format Error'
